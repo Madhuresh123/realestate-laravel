@@ -37,6 +37,10 @@ Route::middleware(['auth','role:admin'])->group(function(){
 
     Route::get('/admin/logout', [adminController::class, 'AdminLogout'])->name('admin.logout');
 
+    Route::get('/admin/profile', [adminController::class, 'AdminProfile'])->name('admin.profile');
+
+    Route::post('/admin/profile/store', [adminController::class, 'AdminProfileStore'])->name('admin.profile.store');
+
 });
 
 Route::middleware(['auth','role:agent'])->group(function(){
@@ -46,6 +50,8 @@ Route::middleware(['auth','role:agent'])->group(function(){
 });
 
 Route::get('/admin/login', [adminController::class, 'AdminLogin'])->name('admin.login');
+
+
 
 
 
