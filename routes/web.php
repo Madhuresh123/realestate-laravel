@@ -45,6 +45,22 @@ Route::middleware(['auth','role:admin'])->group(function(){
 
     Route::post('/admin/update/password', [adminController::class, 'AdminUpdatePassword'])->name('admin.update.password');
 
+    //property
+
+    Route::get('/admin/property/alltype', [adminController::class, 'AdminPropertyAlltype'])->name('admin.property.alltype');
+
+    Route::get('/admin/property/addtype', [adminController::class, 'AdminPropertyAddType'])->name('admin.property.addtype');
+
+    //Add type
+    Route::post('/property/addtype/store', [adminController::class, 'PropertyAddTypeStore'])->name('property.addtype.store');
+
+    Route::get('/property/addtype/delete/{id}', [adminController::class, 'PropertyAddTypeDelete'])->name('property.addtype.delete');
+
+    Route::get('/property/addtype/edit/{id}', [adminController::class, 'PropertyAddTypeEdit'])->name('property.addtype.edit');
+
+    Route::post('/property/addtype/update', [adminController::class, 'PropertyAddTypeUpdate'])->name('property.addtype.update');
+
+
 
 });
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\AllType;
 use Illuminate\Support\Facades\Hash;
 
 class adminController extends Controller
@@ -97,7 +98,69 @@ class adminController extends Controller
             );
 
             return back()->with($notification);
+    }
 
+    public function AdminPropertyAlltype(){
 
+            $alltype = Alltype::all();
+            return view('admin.admin_property_alltype', compact('alltype'));
+    }
+
+    public function AdminPropertyAddType(){
+        return view('admin.admin_property_addtype');
+    }
+
+    public function PropertyAddTypeStore(Request $request){
+
+        $addtype = new Alltype();        ;
+        $addtype->typename = $request->typename;
+        $addtype->typeicon = $request->typeicon;
+
+        $addtype->save();
+
+        $notification = array(
+            'message' => 'Added Property Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect('admin/property/alltype')->with($notification);
+
+    }
+
+    public function PropertyAddTypeDelete($id){
+
+        AllType::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'Deleted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect('admin/property/alltype')->with($notification);
+    }
+
+    public function PropertyAddTypeEdit($id){  
+        
+        $type = AllType::FindOrFail($id);
+        return view("admin.admin_property_addtype_edit", compact('type'));
+    }
+
+    public function PropertyAddTypeUpdate(Request $request){
+
+        $pid = $request->id;
+
+        AllType:: findOrFail($pid)->update (
+            [ 
+                'typename' => $request->typename,
+                'typeicon' => $request->typeicon,
+            ]
+        );
+
+        $notification = array(
+            'message' => 'Updated',
+            'alert-type' => 'success'
+        );
+
+        return redirect('admin/property/alltype')->with($notification);
     }
 }
