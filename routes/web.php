@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\adminController;
 use App\Http\Controllers\AgentController;
+use App\Http\Controllers\backend\RoleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -60,7 +61,18 @@ Route::middleware(['auth','role:admin'])->group(function(){
 
     Route::post('/property/addtype/update', [adminController::class, 'PropertyAddTypeUpdate'])->name('property.addtype.update');
 
+});
 
+// Role Controller
+
+Route::controller(RoleController::class)->group(function () {
+
+    Route::get('/all/permision', [RoleController::class, 'AllPermission'])->name('all.permission');
+    Route::get('/add/permision', [RoleController::class, 'AddPermission'])->name('add.permission');
+    Route::post('/store/permision', [RoleController::class, 'StorePermission'])->name('store.permission');
+    Route::get('/edit/permision/{id}', [RoleController::class, 'EditPermission'])->name('edit.permission');
+    Route::post('/update/permision', [RoleController::class, 'UpdatePermission'])->name('update.permission');
+    Route::get('/delete/permision/{id}', [RoleController::class, 'DeletePermission'])->name('delete.permission');
 
 });
 

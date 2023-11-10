@@ -36,56 +36,45 @@
             </ul>
           </div>
         </li>
+
         <li class="nav-item">
-          <a href="pages/apps/calendar.html" class="nav-link">
-            <i class="link-icon" data-feather="calendar"></i>
-            <span class="link-title">Calendar</span>
+          <a class="nav-link" data-bs-toggle="collapse" href="#emails" role="button" aria-expanded="false" aria-controls="emails">
+            <i class="link-icon" data-feather="mail"></i>
+            <span class="link-title">Property Amities</span>
+            <i class="link-arrow" data-feather="chevron-down"></i>
           </a>
+          <div class="collapse" id="emails">
+            <ul class="nav sub-menu">
+              <li class="nav-item">
+                <a href="" class="nav-link">All Amities</a>
+              </li>
+              <li class="nav-item">
+                <a href="" class="nav-link">Add Amities</a>
+              </li>
+            </ul>
+          </div>
         </li>
-        <li class="nav-item nav-category">Components</li>
+
+
+        <li class="nav-item nav-category">Permission</li>
         <li class="nav-item">
           <a class="nav-link" data-bs-toggle="collapse" href="#uiComponents" role="button" aria-expanded="false" aria-controls="uiComponents">
             <i class="link-icon" data-feather="feather"></i>
-            <span class="link-title">UI Kit</span>
+            <span class="link-title">Roles & Permissions</span>
             <i class="link-arrow" data-feather="chevron-down"></i>
           </a>
           <div class="collapse" id="uiComponents">
             <ul class="nav sub-menu">
               <li class="nav-item">
-                <a href="pages/ui-components/accordion.html" class="nav-link">Accordion</a>
+                <a href="{{route('all.permission')}}" class="nav-link">All Permission</a>
               </li>
               <li class="nav-item">
-                <a href="pages/ui-components/alerts.html" class="nav-link">Alerts</a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/ui-components/badges.html" class="nav-link">Badges</a>
+                <a href="{{ route('add.permission') }}" class="nav-link">Add Permission</a>
               </li>
             </ul>
           </div>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" data-bs-toggle="collapse" href="#advancedUI" role="button" aria-expanded="false" aria-controls="advancedUI">
-            <i class="link-icon" data-feather="anchor"></i>
-            <span class="link-title">Advanced UI</span>
-            <i class="link-arrow" data-feather="chevron-down"></i>
-          </a>
-          <div class="collapse" id="advancedUI">
-            <ul class="nav sub-menu">
-              <li class="nav-item">
-                <a href="pages/advanced-ui/cropper.html" class="nav-link">Cropper</a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/advanced-ui/owl-carousel.html" class="nav-link">Owl carousel</a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/advanced-ui/sortablejs.html" class="nav-link">SortableJs</a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/advanced-ui/sweet-alert.html" class="nav-link">Sweet Alert</a>
-              </li>
-            </ul>
-          </div>
-        </li>
+
 
       
         <li class="nav-item nav-category">Docs</li>
