@@ -3,36 +3,38 @@
 
 <div class="card">
     <div class="card-body">
-      <h6 class="card-title">Data Table</h6>
-      <td><a href="{{ route('add.permission') }}" class="btn btn-inverse-success" >Add Permission</a></td>
+      <br>
+      <h6 class="card-title">All Roles Permission</h6> 
+      
+      <td><a href="{{ route('add.roles') }}" class="btn btn-inverse-success" >Add Roles</a></td>
+       
       <div class="table-responsive">
         <div id="dataTableExample_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
           <div class="row"><div class="col-sm-12 col-md-12">
-          <div class="row"><div class="col-sm-12"><table id="dataTableExample" class="table dataTable no-footer" aria-describedby="dataTableExample_info">
+          <div class="row"><div class="col-sm-12"><table class="table dataTable no-footer" aria-describedby="dataTableExample_info">
           <thead>
             <tr>
               <th class="sorting sorting_asc" tabindex="0" aria-controls="dataTableExample" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 195.163px;">Sr.</th>
-              <th class="sorting sorting_asc" tabindex="0" aria-controls="dataTableExample" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 195.163px;">Permission Name</th>
-              <th class="sorting" tabindex="0" aria-controls="dataTableExample" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 306.925px;">Group Name</th>
+              <th class="sorting sorting_asc" tabindex="0" aria-controls="dataTableExample" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 195.163px;">Role Name</th>
               <th class="sorting" tabindex="0" aria-controls="dataTableExample" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 306.925px;">Action</th>
 
           </thead>
 
           <tbody>    
-            @foreach($permissions as $permission)
+            @foreach($roles as $key => $item)
           <tr class="odd">
-            <td class="sorting_1">{{$permission->id}}</td>
-            <td class="sorting_1">{{$permission->name}}</td>
-              <td class="sorting_1">{{$permission->group_name}}</td>
+            <td class="sorting_1">{{$key+1}}</td>
+            <td class="sorting_1">{{$item->name}}</td>
+            <td class="sorting_1">
+                @foreach($item->permissions as $prem)
+                <span class="badge bg-danger">{{$prem->name}}</span>
+               
+                @endforeach
+            </td>
+
               <td>
-                @if(Auth::user()->can('edit.type'))
-                <a href="{{route('edit.permission', $permission->id )}}" class="btn btn-inverse-warning" >Edit</a>
-                @endif
-
-                @if(Auth::user()->can('delete.type'))
-                <a href="{{route('delete.permission', $permission->id )}}" class="btn btn-inverse-danger" >Delete</a>
-                @endif
-
+                <a href="{{route('admin.edit.role', $item->id) }}" class="btn btn-inverse-warning" >Edit</a>
+                <a href="{{route('admin.delete.role', $item->id) }}" class="btn btn-inverse-danger" >Delete</a>
             </tr>
             @endforeach
         </tbody>

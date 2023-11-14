@@ -25,6 +25,7 @@
                                     <label for="exampleInputUsername1" class="form-label">Group Name</label>
                                     <select name="group_name" class="form-select">
                                         <option selected="" disabled="" >Select Group</option>
+                                        <option value="agent" >Agent</option>
                                         <option value="type" >Property Types</option>
                                         <option value="state" >State</option>
                                         <option value="amenities" >Amenities</option>
