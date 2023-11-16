@@ -74,8 +74,9 @@
                                 <br>
                             </div>
 
-                            </div>
                             @endforeach
+
+                        </div>
 
                      <button type="submit" class="btn btn-primary me-2">Save changes</button>
                                   
