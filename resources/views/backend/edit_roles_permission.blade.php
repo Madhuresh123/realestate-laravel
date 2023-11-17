@@ -60,7 +60,7 @@
                                 <div class="form-check mb-2">
                                     <input type="checkbox" class="form-check-input" name="permission[]" 
                                     id="checkDefault{{$permission->id}}" 
-                                    value="{{$permission->id}}"
+                                    value="{{$permission->name}}"
                                     {{$role->hasPermissionTo($permission->id) ? 'checked': ''}} 
                                     >
                                                           <label class="form-check-label" for="checkDefault{{$permission->id}}">
