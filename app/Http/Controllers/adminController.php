@@ -236,7 +236,7 @@ class adminController extends Controller
             'alert-type' => 'success'
         );
     
-        return redirect()->route('all.roles')->with($notification);
+        return redirect()->route('all.admin')->with($notification);
     }
 
     public function DeleteAdmin($id){
