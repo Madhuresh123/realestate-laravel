@@ -1,0 +1,18 @@
+php artisan make:controller adminController
+php artisan make:component componentName
+php artisan config:Cache
+php artisan make:migration create_alltype_table
+php artisan migrate
+php artisan make:migration add_columns_to_customers_table
+php artisan make:model allType
+php artisan make:request UserRegistrationRequest
+
+composer create-project laravel/laravel estate-app
+artisan make:seeder AllTypeSeeder
+php artisan db:seed --class=UserTableSeeder
+php artisan make:middleware Role
+
+
+composer require spatie/laravel-permission
+
+php artisan make:import PermissionImport --model=Permission                    
